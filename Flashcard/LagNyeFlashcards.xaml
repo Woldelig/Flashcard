@@ -1,0 +1,20 @@
+﻿<Window x:Class="Flashcard.LagNyeFlashcards"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Flashcard"
+        mc:Ignorable="d"
+        Title="LagNyeFlashcards" Height="335.694" Width="650.141">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="11,50,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Fagkode/navn på tema" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="LageTemaBtn" Content="Lag nytt tema" HorizontalAlignment="Left" Margin="146,53,0,0" VerticalAlignment="Top" Width="94"/>
+        <Label Content="Spørsmål" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
+        <Label Content="Svar" HorizontalAlignment="Left" Margin="178,134,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.352,1.12"/>
+        <Button x:Name="LagSpmBtn" Content="Lag spørsmål" HorizontalAlignment="Left" Margin="307,168,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="178,165,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,165,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+
+    </Grid>
+</Window>

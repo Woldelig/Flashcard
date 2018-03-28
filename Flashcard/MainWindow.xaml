@@ -1,0 +1,14 @@
+﻿<Window x:Class="Flashcard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Flashcard"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Button x:Name="LagNyeFlashcardsBtn" Content="Lag nye flashcard" HorizontalAlignment="Left" Margin="13,111,0,0" VerticalAlignment="Top" Width="206" Height="85" Click="LagNyeFlashcardsBtn_Click"/>
+        <Button x:Name="BrukEksisterendeFlashCardBtn" Content="Bruk eksisterende flashcards" HorizontalAlignment="Left" Margin="286,111,0,0" VerticalAlignment="Top" Width="206" Height="85" Click="BrukEksisterendeFlashCardBtn_Click"/>
+
+    </Grid>
+</Window>

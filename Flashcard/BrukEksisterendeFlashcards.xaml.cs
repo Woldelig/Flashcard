@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+using Microsoft.Win32;
 
 namespace Flashcard
 {
@@ -22,6 +24,17 @@ namespace Flashcard
         public BrukEksisterendeFlashcards()
         {
             InitializeComponent();
+        }
+        private void ÅpneFlashcardFilBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog filDialog = new OpenFileDialog();
+            filDialog.Title = "Åpne CSV fil";
+            filDialog.Filter = "CSV | *.csv";
+            filDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            if (filDialog.ShowDialog() == true)
+            {
+                ÅpneFlashcardFilBtn.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

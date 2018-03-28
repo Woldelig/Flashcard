@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Flashcard"
         mc:Ignorable="d"
-        Title="BrukEksisterendeFlashcards" Height="326.346" Width="666.289">
+        Title="BrukEksisterendeFlashcards" Height="358.703" Width="914.978">
     <Grid>
-        
+
     </Grid>
 </Window>

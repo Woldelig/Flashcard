@@ -22,6 +22,7 @@ namespace Flashcard
     public partial class LagNyeFlashcards : Window
     {
         String filnavn;
+        Boolean knappErTrykket = false;
         public LagNyeFlashcards()
         {
             InitializeComponent();
@@ -32,27 +33,38 @@ namespace Flashcard
 
         private void LagSpmBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (String.IsNullOrEmpty(TemaTextbox.Text))
+            if (!knappErTrykket)
             {
-                TemaFeilmld.Content = "Du må skrive inn en overskrift for tema";
+                if (String.IsNullOrEmpty(TemaTextbox.Text))
+                {
+                    TemaFeilmld.Content = "Du må skrive inn en overskrift for tema";
+                }
+                filnavn = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), TemaTextbox.Text + ".csv");
+                if (File.Exists(filnavn))
+                {
+                    TemaFeilmld.Content = "Filnavn/temanavn eksisterer allerede.";
+                    return;
+                }
+                //Denne linjen lagrer alle filer på desktop. Kunne brukt filedialog men liker den ikke. Linjen under er lang fordi da kan den brukes uten å vite brukernavn på pc
+                Console.WriteLine(filnavn);
+                StreamWriter sw = new StreamWriter(filnavn);
+                sw.Write(TemaTextbox.Text);
+                sw.Write(sw.NewLine);
+                sw.Close();
             }
-            StreamWriter sw = new StreamWriter("C:\\Users\\chris\\Documents\\" + TemaTextbox.Text + ".csv");
-            filnavn = "C:\\Users\\chris\\Documents\\" + TemaTextbox.Text + ".csv";
-            sw.Write(TemaTextbox.Text);
-            sw.Write(sw.NewLine);
-            sw.Close();
 
             if (!String.IsNullOrEmpty(SpmTextbox.Text)){ LeggTilICsvFil(SpmTextbox, SvarTextbox); }
             if (!String.IsNullOrEmpty(SpmTextbox2.Text)){ LeggTilICsvFil(SpmTextbox2, SvarTextbox2); }
             if (!String.IsNullOrEmpty(SpmTextbox3.Text)){ LeggTilICsvFil(SpmTextbox3, SvarTextbox3); }
             if (!String.IsNullOrEmpty(SpmTextbox4.Text)){ LeggTilICsvFil(SpmTextbox4, SvarTextbox4); }
             if (!String.IsNullOrEmpty(SpmTextbox5.Text)){ LeggTilICsvFil(SpmTextbox5, SvarTextbox5); }
+            knappErTrykket = true;
         }
 
         private void LeggTilICsvFil(TextBox spmTextbox, TextBox svarTextbox)
         {
             StreamWriter sw = new StreamWriter(filnavn, append: true);
-            sw.Write(spmTextbox.Text + "," + svarTextbox.Text);
+            sw.Write(spmTextbox.Text + ";" + svarTextbox.Text);
             sw.Write(sw.NewLine);
             sw.Close();
             spmTextbox.Clear();

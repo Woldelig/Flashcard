@@ -27,39 +27,40 @@ namespace Flashcard
             InitializeComponent();
             SpmSvarFeilmld.Content = "";
             TemaFeilmld.Content = "";
-        }
-        private void LageTemaBtn_Click(object sender, RoutedEventArgs e)
-        {
-            SaveFileDialog lagreFilDialog = new SaveFileDialog();
-            lagreFilDialog.Filter = "CSV | *.csv";
-
-            if (String.IsNullOrEmpty(TemaTextbox.Text))
-            {
-                TemaFeilmld.Content = "Du må skrive inn en overskrift for tema";
-            }
-
-            if (lagreFilDialog.ShowDialog() == true)
-            {
-                //Lar deg skrive navnet på filen
-                filnavn = lagreFilDialog.FileName;
-                StreamWriter sw = new StreamWriter(lagreFilDialog.FileName);
-                sw.Write(TemaTextbox.Text);
-                sw.Write(sw.NewLine);
-                sw.Close();
-            }
+            LeggTilFlerLbl.Content = "";
         }
 
         private void LagSpmBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (String.IsNullOrEmpty(SpmTextbox.Text))
+            if (String.IsNullOrEmpty(TemaTextbox.Text))
             {
-                LeggTilICsvFil(SpmTextbox, SvarTextbox);
+                TemaFeilmld.Content = "Du må skrive inn en overskrift for tema";
             }
+            StreamWriter sw = new StreamWriter("C:\\Users\\chris\\Documents\\" + TemaTextbox.Text + ".csv");
+            filnavn = "C:\\Users\\chris\\Documents\\" + TemaTextbox.Text + ".csv";
+            sw.Write(TemaTextbox.Text);
+            sw.Write(sw.NewLine);
+            sw.Close();
+
+            if (!String.IsNullOrEmpty(SpmTextbox.Text)){ LeggTilICsvFil(SpmTextbox, SvarTextbox); }
+            if (!String.IsNullOrEmpty(SpmTextbox2.Text)){ LeggTilICsvFil(SpmTextbox2, SvarTextbox2); }
+            if (!String.IsNullOrEmpty(SpmTextbox3.Text)){ LeggTilICsvFil(SpmTextbox3, SvarTextbox3); }
+            if (!String.IsNullOrEmpty(SpmTextbox4.Text)){ LeggTilICsvFil(SpmTextbox4, SvarTextbox4); }
+            if (!String.IsNullOrEmpty(SpmTextbox5.Text)){ LeggTilICsvFil(SpmTextbox5, SvarTextbox5); }
         }
 
         private void LeggTilICsvFil(TextBox spmTextbox, TextBox svarTextbox)
         {
-
+            StreamWriter sw = new StreamWriter(filnavn, append: true);
+            sw.Write(spmTextbox.Text + "," + svarTextbox.Text);
+            sw.Write(sw.NewLine);
+            sw.Close();
+            spmTextbox.Clear();
+            svarTextbox.Clear();
+            if (String.IsNullOrEmpty(LeggTilFlerLbl.Content.ToString()))
+            {
+                LeggTilFlerLbl.Content = "Trykk på lag spørsmål for å fortsette å legge til flere spørsmål til temaet: " + TemaTextbox.Text;
+            }
         }
 
     }

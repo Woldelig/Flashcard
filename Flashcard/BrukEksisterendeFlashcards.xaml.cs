@@ -21,6 +21,8 @@ namespace Flashcard
     /// </summary>
     public partial class BrukEksisterendeFlashcards : Window
     {
+        Boolean TrykketPåKnappen = false;
+        String[,] FlashcardArray;
         public BrukEksisterendeFlashcards()
         {
             InitializeComponent();
@@ -35,6 +37,18 @@ namespace Flashcard
             {
                 ÅpneFlashcardFilBtn.Visibility = Visibility.Collapsed;
             }
+            //StreamReader leser = new StreamReader(filDialog.FileName);
+            int antallLinjer = 0;
+            using (var leser = File.OpenText(filDialog.FileName))
+            {
+                while (leser.ReadLine() != null)
+                {
+                    antallLinjer++;
+                }
+                //Fjerner overskriften
+                antallLinjer--;
+            }
+            testtsetst.Text = antallLinjer.ToString();
         }
     }
 }

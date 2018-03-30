@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="BrukEksisterendeFlashcards" Height="358.703" Width="914.978">
     <Grid>
-        <Button x:Name="ÅpneFlashcardFilBtn" Content="Åpne flashcard fil" HorizontalAlignment="Left" Margin="80,83,0,0" VerticalAlignment="Top" Width="122" Click="ÅpneFlashcardFilBtn_Click"/>
+        <Button x:Name="ÅpneFlashcardFilBtn" Content="Åpne flashcard fil" HorizontalAlignment="Left" Margin="26,29,0,0" VerticalAlignment="Top" Width="122" Click="ÅpneFlashcardFilBtn_Click"/>
+        <TextBlock x:Name="testtsetst" HorizontalAlignment="Left" Margin="402,116,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

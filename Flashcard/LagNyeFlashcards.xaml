@@ -25,6 +25,7 @@
         <TextBox x:Name="SpmTextbox5" HorizontalAlignment="Left" Height="23" Margin="20,211,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="277"/>
         <TextBox x:Name="SvarTextbox5" HorizontalAlignment="Left" Height="23" Margin="323,211,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="309"/>
         <Label x:Name="LeggTilFlerLbl" Content="Label" HorizontalAlignment="Left" Margin="146,10,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="StartFlashcardsBtn" Content="Kjør Flashcards" HorizontalAlignment="Left" Margin="494,28,0,0" VerticalAlignment="Top" Width="110" Click="StartFlashcardsBtn_Click"/>
 
     </Grid>
 </Window>

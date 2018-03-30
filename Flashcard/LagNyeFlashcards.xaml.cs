@@ -75,5 +75,11 @@ namespace Flashcard
             }
         }
 
+        private void StartFlashcardsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            BrukEksisterendeFlashcards brukEksisterendeFlashcards = new BrukEksisterendeFlashcards();
+            brukEksisterendeFlashcards.Show();
+            this.Close();
+        }
     }
 }
